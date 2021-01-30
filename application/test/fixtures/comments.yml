@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  pID: 1
+  cID: 1
+  uID: 1
+
+two:
+  content: MyString
+  pID: 1
+  cID: 1
+  uID: 1
+
+three:
+  content: Third
+  pID: 1
+  cID: 1
+  uID: 1

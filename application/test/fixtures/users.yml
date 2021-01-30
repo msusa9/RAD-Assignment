@@ -1,0 +1,127 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_name: Foo
+  email: test@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= Time.zone.now %>
+  area: MyString
+  bio: MyString
+
+two:
+  user_name: Jeramiah Anderson
+  email: test2@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 1.day.ago %>
+  area: MyString
+  bio: MyString
+
+three:
+  user_name: Brian Ampton
+  email: test3@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 2.days.ago %>
+  area: MyString
+  bio: MyString
+
+four:
+  user_name: Sultan Muadib
+  email: test4@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 3.days.ago %>
+  area: MyString
+  bio: MyString
+
+five:
+  user_name: Dully Altuab
+  email: test5@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 4.days.ago %>
+  area: MyString
+  bio: MyString
+
+six:
+  user_name: Zane
+  email: test6@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 5.days.ago %>
+  area: MyString
+  bio: MyString
+
+seven:
+  user_name: Brian
+  email: test7@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 7.days.ago %>
+  area: MyString
+  bio: MyString
+
+eight:
+  user_name: Capeton Jeremiah
+  email: test8@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 8.days.ago %>
+  area: MyString
+  bio: MyString
+
+nine:
+  user_name: Brother Jeremy
+  email: test9@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 9.days.ago %>
+  area: MyString
+  bio: MyString
+
+ten:
+  user_name: Sigmiah
+  email: test10@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 10.days.ago %>
+  area: MyString
+  bio: MyString
+
+eleven:
+  user_name: Apu Yamatoal
+  email: test11@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 11.days.ago %>
+  area: MyString
+  bio: MyString
+
+twelve:
+  user_name: Raz Yellowstone
+  email: test12@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 12.days.ago %>
+  area: MyString
+  bio: MyString
+
+thirteen:
+  user_name: Pete Meat
+  email: test13@test.com
+  phone_number: 0435000590
+  password_digest: <%= User.digest('password') %>
+  login_time: <%= 13.days.ago %>
+  area: MyString
+  bio: MyString
+
+fourteen:
+  user_name: Bar
+  email: bar@test.com
+  phone_number: 0439555388
+  password_digest: <%= User.digest('test') %>
+  login_time: <%= 14.days.ago %>
+  area: MyString
+  bio: MyString

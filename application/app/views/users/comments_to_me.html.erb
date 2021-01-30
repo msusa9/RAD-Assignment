@@ -1,0 +1,23 @@
+<div id = 'sidebar'>
+    <%= render 'settings_sidebar'%>
+</div>
+
+<div id="Comments">
+<h2>Comments To Me</h2>
+<table id="profTable">
+  <% @comments.each do |comment| %>
+    <% post = nil %>
+    <% @allPosts.each do |poster| %>
+      <% if poster.id == comment.pID
+        post = poster
+      end %>
+    <% end %>
+    <tr>
+      <td>
+        <span id="commentIntro"><%= comment.created_at.to_date %> in <%= link_to post.title, post, title: post.title%> comment:
+        <span id="commentContent"><%=  comment.content%></span>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>

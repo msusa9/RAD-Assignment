@@ -1,0 +1,58 @@
+<ul id = "side-bar">
+
+    <li id = "recent-users" class = "box">
+        <h5> Recent members </h5>
+        <div class = "wrapper">
+          <% recent_users.each do |user| %>
+            <div>
+              <% unless user.nil? %>
+                <% if user.avatar.attached? %>
+                  <image id="avatar_image" src="<%=(url_for(user.avatar))%>">
+                <% else %>
+                  <%= image_tag("avatar.png", :size => "50x50") %>
+                <% end %>
+                <br><h6><%= link_to user.user_name, user %></h6>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+    </li>
+
+
+    <li id = "topic-list" class = "box">
+    <h5>Topics</h5>
+    <%= form_tag(posts_path, :method => "get", id:'filterTopics') do %>
+        <% @topics.each do |topic| %>
+          <% idName = topic.name + "filter" %>
+            <label id="filterLabel" for = <%=topic.name%>>
+              <%= check_box_tag topic.name, topic.name, false%>
+              <span id="filterSpan"><%= topic.name %> </span>
+            </label>
+          <% end %>
+        <% end %>
+
+    </li>
+
+    <li id = "post-list" class = "box">
+      <h5> Most view posts </h5>
+      <table>
+        <tbody>
+          <% @mostViewed.each do |post|%>
+                <tr>
+                  <td><%= link_to post.title, post, id: "mostViewed" %></td>
+                  <td><%= image_tag("viewIcon.png", :size => "20x20") %> <%= post.view %></td>
+                </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </li>
+
+    <li id = "link-list" class = "box">
+      <h5> Additional Lists </h5>
+      <%= link_to 'RMIT',  "https://www.rmit.edu.au"%>
+      <%= link_to 'Google',  "https://www.google.com.au"%>
+      <%= link_to 'Rails',  "https://www.rubyonrails.org"%>
+      <%= link_to 'Github', "https://www.github.com"%>
+
+    </li>
+</ul>

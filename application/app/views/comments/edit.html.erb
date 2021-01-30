@@ -1,0 +1,15 @@
+<h1>Editing Comment</h1>
+
+
+<%=form_for(@comment, url: comment_path) do |f| %>
+    <div>
+      <%= f.label :content %>
+      <textarea name="comment[content]"  cols="80" rows="20"><%= @comment.content %></textarea>
+    </div>
+  
+    <%= f.hidden_field :pID, value:@comment.pID%>
+    <%= f.hidden_field :uID, value:@comment.uID %>
+  
+    <%=f.submit "Update Comment" %>
+  
+<% end %>

@@ -1,0 +1,38 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav navbar-centre">
+          <li><%= link_to "News+", root_path, method: :get, id: "logo" %></li>
+          <li><%= link_to "Home", root_path, method: :get%></li>
+
+            <li id = "fat-menu" class = "dropdown">
+              <a href = "#" class= "dropdown-toggle" data-toggle = "dropdown"> News <b class = "caret"></b></a>
+              <ul class = "dropdown-menu" role = "menu">
+                <% topics = Topic.all
+                  topics = topics.order(views: :desc).limit(2) %>
+                <% topics.each do |topic| %>
+                  <li><%= link_to topic.name, posts_path(topic.name => topic.name)%></li>
+                <% end %>
+              </ul>
+            </li>
+          
+          <% if logged_in? %>
+            <li><%= link_to current_user.user_name, current_user %></li>    
+          <% end %>
+          
+
+          <div id = "avatar-header">
+            <% if logged_in? %>
+              <li>
+                <% if current_user.avatar.attached? %>
+                  <%=link_to image_tag(url_for(current_user.avatar), :size => "50x50"), logout_path, method: :delete%>
+                <% else %>
+                  <%=link_to image_tag("avatar.png", :size => "50x50"), logout_path, method: :delete%>
+              <% end %>
+            </li>
+            <% else %>
+              <%= link_to image_tag("avatar.png", :size => "50x50"), login_path %>
+            <% end %>
+          </div>
+        </ul>
+    </div>
+</header>

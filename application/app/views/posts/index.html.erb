@@ -1,0 +1,66 @@
+<%= stylesheet_link_tag 'posts.scss' %>
+
+<div id = 'side-content'>
+    <%= render 'side_content'%>
+</div>
+
+<div id = 'main-content'>
+    <ul id="post_nav" style = "display: table">
+      <li><%= link_to 'Recent Post', posts_url, method: :get ,class: 'myBtns'%></li>
+      <li><button id='myBtn'>Selected Post</button></li>
+
+      <% if(logged_in?) %>
+        <li><%= link_to "My Settings", personal_info_edit_users_path ,class: 'myBtns'%></li>
+      <% end %>
+
+      <%= form_tag(posts_path, :method => "get", id:'filterTopics') do %>
+        <%= text_field_tag(:search, params[:search], placeholder: "Search") %>
+      <% end %>
+
+
+      <%= link_to 'New Post', new_post_path ,class: 'myBtns', id: 'post_but'%>
+      
+
+    </ul>
+    
+  <Table style = "width: 100%; margin-bottom: 30px;" cellspacing = "0" cellpadding = "0">
+    <colgroup>
+       <col span="1" style="width: 5%;">
+       <col span="1" style="width: 75%;">
+       <col span="1" style="width: 20%">
+    </colgroup>
+
+    <% @posts.each do |post| %>  
+    <tr>
+      <% @user = @users.where(id: post.uID).limit(1) %>
+      <% @user.each do |user| %>
+      <td>
+        
+        <% if user.avatar.attached? %>
+          <image id="avatar_image" src="<%=(url_for(user.avatar))%>">
+        <% else %>
+          <%= image_tag("avatar.png", :size => "50x50") %>
+        <% end %>
+        
+      </td>
+      <td>
+        <span id="postTitle"><h3><%= link_to post.title, post, method: :get,title: post.title, "data-toggle" => "tooltip", "data-placement" => "right" %></h3></span><br>
+        <span id="postUsername"><p><%= link_to user.user_name, user, id: user.id %></span> 
+
+        <span id="postDate"><%= post.created_at %></span>
+        <span id="postTopic"><%= post.topic %></span>
+      </td>
+
+      <td id = "posts-other">
+        <%= image_tag("commentIcon.svg", :size => "20x20") %> <span id="commentCount<%=post.id%>"><%= post.commentCount %></span>
+        <%= image_tag("viewIcon.png", :size => "20x20") %> <span id="viewCount<%=post.id%>"><%= post.view %></span>
+      </td>
+
+      <% end %>
+    </tr>
+    <% end %>
+  </Table>
+</div>
+
+
+

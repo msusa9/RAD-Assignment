@@ -1,0 +1,38 @@
+<div id = 'sidebar'>
+    <%= render 'settings_sidebar'%>
+</div>
+
+<div id="settings">
+    <div id = 'settings_header'>
+        <%= render 'settings_header'%>
+    </div>
+</div>
+<% if @user.verification.attached? %>
+    <div id="verification_photo">
+        <image id="verification" src="<%=(url_for(@user.verification))%>">
+    </div>
+<% end %>
+
+<div id="verification_upload">
+    <%= form_with(model: @user, local: true) do |form| %>
+        <% if @user.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <div class="field">
+            <%= form.label :verification %>
+            <%= form.file_field :verification %>
+        </div>
+
+        <div class="actions">
+            <%= form.submit %>
+            </div>
+    <% end %>
+</div>

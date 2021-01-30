@@ -1,0 +1,26 @@
+<h1>New Post</h1>
+
+<%=form_for(@post, url: posts_path) do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, :required => true, placeholder: "Enter post title here"%>
+  </div>
+  <br/>
+  <div>
+    <%= f.label :topic %>
+    <%= f.collection_select :topic, @topics, :name, :name, {include_blank: 'Select a Topic'} %>
+  </div>
+  <br/>
+  <div>
+    <%= f.label :content %>
+    <textarea name="post[content]"  placeholder="Enter your post here" cols="80" rows="20" required><%= @post.content %></textarea>
+  </div>
+
+  <%= f.hidden_field :uID, value: current_user.id  %>
+  <%= f.hidden_field :commentCount, value:0 %>
+  <%= f.hidden_field :view, value:0 %>
+
+  <%=f.submit "Create Post" %>
+
+<% end %>
+

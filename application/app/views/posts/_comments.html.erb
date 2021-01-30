@@ -1,0 +1,70 @@
+<h1>Comments</h1>
+
+<%=form_for(@comment_new, url: comments_path) do |f| %>
+    <div>
+      <%= f.label :content %>
+      <textarea name="comment[content]"  placeholder="Type Comment Here" cols="80" rows="10" required><%= @comment_new.content %></textarea>
+    </div>
+  
+    <%= f.hidden_field :pID, value:@post.id%>
+    <%= f.hidden_field :uID, value: current_user.id %>
+  
+    <%=f.submit "Create Comment" %>
+  
+<% end %>
+
+<h2 id="comment_count"><%=@post.commentCount%> Comments</h2>
+<Table style = "width: 100%">
+    <colgroup>
+        <col span="1" style="width: 80%;">
+        <col span="1" style="width: 20%;">
+    </colgroup>
+          <tbody>
+            <% @comments.each do |comment| %>
+                <% if comment.pID == @post.id %>
+                    <% username = ""
+                        avatarURL = "blank"
+                        @users.each do |user|
+                        if(user.id == comment.uID)
+                            username = user
+                            if user.avatar.attached?
+                                avatarURL = url_for(user.avatar)
+                            end
+                        end
+                    end %>
+                    <tr>
+                        <td>
+                            <div id="user_info">
+                                <div id="comment_avatar">
+                                    <% if avatarURL == "blank" %>
+                                        <%= image_tag("avatar.png", :size => "50x50") %>
+                                    <% else %>
+                                        <image id="avatar_image" src="<%= avatarURL %>">
+                                    <% end %>
+                                </div>
+
+                                <div id="name_date">
+                                    <div id="name">
+                                        <%= link_to username.user_name, username, id: username.id %>
+                                    </div>
+                                    <div id="date">
+                                        <%= comment.created_at%>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="content">
+                                <%= comment.content %>
+                            </div>
+                        </td>
+
+                        <td>
+                            <% if comment.uID == current_user.id %>
+                                <%= link_to 'Edit', edit_comment_path(comment), id: "editComment#{comment.uID}" %>
+                            <% end %>
+                        </td>
+                    </tr>
+                <% end %>
+          </tbody>
+      <% end %>
+</Table>

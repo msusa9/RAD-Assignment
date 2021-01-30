@@ -1,0 +1,57 @@
+<div id = 'side-content'>
+    <%= render 'side_content'%>
+</div>
+
+<div id="main-content">
+  <p id="notice"><%= notice %></p>
+
+  <br/>
+  <br/>
+  <button id='myBtn'>Selected Post</button>
+  <div class="posts">
+    <h1><%= @post.title %></h1>
+    
+    <div id="topic_commentCount_views">
+      <div id="topic">
+        <%= @post.topic %>
+      </div>
+      <div id="commentCount_views">
+        <%= image_tag("commentIcon.svg", :size => "20x20") %> <span id="commentCount"><%= @post.commentCount %></span>
+        <%= image_tag("viewIcon.png", :size => "20x20") %> <span id="postView"><%= @post.view %></span>
+      </div>
+    </div>
+
+    <div id="user_info_post">
+      <div>
+        <% if @user_post.avatar.attached? %>
+          <image id="avatar_image" src="<%=(url_for(@user_post.avatar))%>">
+        <% else %>
+          <%= image_tag("avatar.png", :size => "50x50") %>
+        <% end %>
+      </div>
+      
+      <div id="name">
+        <%= link_to @user_post.user_name, @user_post, id: @user_post.id %>
+      </div>
+
+      <div>
+        <%= @post.created_at %>
+      </div>
+
+      <div>
+        <% if @post.uID == current_user.id %>
+          <%= link_to 'Edit', edit_post_path(@post) %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <br/>
+    <h3> Content </h3>
+      <p> <%= @post.content %> </p>
+  <br/>
+
+  <%= render 'comments' %>
+</div>
+

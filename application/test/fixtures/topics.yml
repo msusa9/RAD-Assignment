@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Games:
+  name: Games
+  description: String
+  views: 0
+
+AI:
+  name: AI
+  description: String
+  views: 0
+
+Stuff:
+  name: Stuff
+  description: String
+  views: 0
+
+World:
+  name: World
+  description: String
+  views: 0
+
+COVID19:
+  name: COVID19
+  description: String
+  views: 0
+
+VR:
+  name: VR
+  description: String
+  views: 0

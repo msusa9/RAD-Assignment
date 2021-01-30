@@ -1,0 +1,53 @@
+<div id = 'sidebar'>
+    <%= render 'settings_sidebar'%>
+</div>
+
+<div id="settings">
+    <div id = 'settings_header'>
+        <%= render 'settings_header'%>
+    </div>
+
+    <div id="form">
+        <%= form_with(model: @user, local: true) do |form| %>
+            <% if @user.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        
+                <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+                </ul>
+            </div>
+            <% end %>
+        
+            <div class="field">
+                <%= form.label :user_name %>
+                <%= form.text_field :user_name, :required => true %>
+            </div>
+        
+            <div class="field">
+                <%= form.label :email %>
+                <%= form.text_field :email, :required => true %>
+            </div>
+        
+            <div class="field">
+                <%= form.label :phone_number %>
+                <%= form.text_field :phone_number, :required => true %>
+            </div>
+
+            <div class="field">
+                <%= form.label :area %>
+                <%= form.text_field :area %>
+            </div>
+
+            <div class="field">
+                <%= form.label :bio %>
+                <textarea name="user[bio]"  placeholder="Type Personal Info Here" cols="40" rows="10"><%= @user.bio %></textarea>
+        
+            <div class="actions">
+            <%= form.submit %>
+            </div>
+        <% end %>
+    </div>
+</div>

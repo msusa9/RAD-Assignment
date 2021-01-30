@@ -1,0 +1,13 @@
+
+<div class = "row">
+    <div class = "col-md-6 col-md-offset-3">
+        <h1> Enter email </h1>
+        <%= form_for(:bypass_session, url: forgotpassword_path) do |form| %>
+
+            <%= form.label :email%>
+            <%=form.email_field :email, class:'form-control' %>
+
+            <%= form.submit "Submit email", class:"btn btn-primary"%>
+        <%end%>
+    </div>
+</div>

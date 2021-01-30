@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topic: Games
+  uID: 1
+  content: "MyString"
+  view: 0
+  commentCount: 0
+  title: ViewTest
+
+two:
+  topic: VR
+  uID: 1
+  content: "MyString"
+  view: 0
+  commentCount: 0
+  title: MyString
+
+three:
+  topic: Stuff
+  uID: 1
+  content: "MyString"
+  view: 0
+  commentCount: 0
+  title: MyString
+
+four:
+  topic: World
+  uID: 1
+  content: "MyString"
+  view: 0
+  commentCount: 0
+  title: MyString
+
+five:
+  topic: COVID19
+  uID: 1
+  content: "MyString"
+  view: 0
+  commentCount: 0
+  title: MyString
+
+five:
+  topic: AI
+  uID: 1
+  content: "MyString"
+  view: 0
+  commentCount: 0
+  title: MyString
+
+five:
+  topic:
+  uID: 1
+  content: "MyString"
+  view: 0
+  commentCount: 0
+  title: MyString

@@ -1,0 +1,24 @@
+<h1>Editing Post</h1>
+
+<%=form_for(@post, url: post_path) do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <br/>
+    <div>
+      <%= f.label :topic %>
+      <%= f.collection_select :topic, @topics, :name, :name %>
+    </div>
+    <br/>
+    <div>
+      <%= f.label :content %>
+      <textarea name="post[content]"  cols="80" rows="20"><%= @post.content %></textarea>
+    </div>
+  
+    <%=f.submit "Update Post" %>
+  
+<% end %>
+
+<%= link_to 'Show', @post %> |
+<%= link_to 'Back', posts_path %>

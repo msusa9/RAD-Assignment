@@ -1,0 +1,200 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#main-content 
+{
+    background: white;
+    padding: 40px;
+    padding-top: 0px;
+    height: 900px;
+    
+    width: 70%;
+}
+
+
+#side-content
+{
+    padding: 25px;
+    float: right;
+    width: 30%;
+}
+
+#recent-users
+{
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        grid-auto-columns: minmax(15px, auto);
+        grid-auto-rows: minmax(15px, auto);
+    }
+}
+
+//post nav
+
+#post_nav li{
+    display: inline-block;
+    background-color: #333;
+    padding: 5px;
+    margin-right: 0px;
+}
+
+#post_nav li a{
+    color: white;
+}
+
+#post_nav form{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#post_nav li button{
+    background-color: #333;
+    color: white;
+    padding: 0;
+    border: none;
+}
+
+#post_nav{
+    width: 100%;
+    padding: 10px;
+}
+
+#post_but{
+    float: right;
+    background-color: teal;
+    padding: 5px;
+    color: white;
+}
+
+
+
+//Filter Topics
+#filterLabel {
+    display:inline-block;
+}
+#filterLabel span{
+    display: inline-block;
+    border-style: solid;
+    border-width:2px;
+    margin:5px;
+    padding:5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 25px;
+}
+
+
+:checked + span{
+    color:white;
+    background-color: blue;
+}
+
+:hover + span{
+    background-color: blue;
+    color: white;
+}
+
+#Games, #AI, #Stuff, #World, #COVID19, #VR {
+    display: none;
+}
+
+//All Posts Display
+
+#posts {
+    border-collapse:separate;
+    border-spacing: 0 15px;
+}
+
+#posts th,td{
+    width:150px;
+    border-bottom: solid;
+    border-width: 2px;
+}
+
+.title{
+    position: relative;
+}
+
+.title #titleSpan{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.title:hover span{
+    visibility: visible;
+}
+
+#postDate, #postTopic{
+    padding-left: 10px;
+}
+
+//links
+
+#link-list a{
+    display: inline-block;
+    border-style: solid;
+    border-width:2px;
+    margin:5px;
+    padding:5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 25px;
+}
+
+#link-list a:hover{
+    background-color: blue;
+}
+
+//comments
+
+#user_info div{
+    display: inline-block;
+    padding: 2px;
+}
+
+#comment_count{
+    text-align: right;
+}
+
+#name a{
+    color: blue;
+}
+
+//show post
+
+#commentCount_views{
+    float: right;
+}
+
+#topic_commentCount_views div{
+    display: inline-block;
+}
+
+#topic{
+    background-color: #333;
+    color: white;
+    padding: 5px;
+}
+
+#user_info_post{
+    padding-top: 5px;
+    margin-top: 10px;
+    background-color: lightgrey;
+}
+
+#user_info_post div{
+    padding: 5px;
+    display: inline-block;
+}

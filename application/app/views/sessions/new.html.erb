@@ -1,0 +1,34 @@
+<h1> Log in </h1>
+<div class = "row">
+    <div class = "col-md-6 col-md-offset-3">
+        <%= form_for(:session, url: login_path) do |form| %>
+
+            <%= form.label :email%>
+            <% if cookies[:email].nil? %>
+                <%=form.text_field :email, class:'form-control' %>
+            <% else %>
+                <%=form.text_field :email, class:'form-control', :value => cookies.permanent.signed[:email] %>
+            <% end %>
+
+            <%=form.password_field :password, class:'form-control' %>
+
+            <%= form.label :remember_me, class: "checkbox inline" do %>
+                <% if cookies[:email].nil? %>
+                    <%=form.check_box :remember_me, :checked => false %>
+                <% else %>
+                    <%=form.check_box :remember_me, :checked => true %>
+                <% end %>
+                <span>Remember me on this computer</span>
+            <%end%>
+
+            <p> Forgot password? <%=link_to "login here!", forgotpassword_path%></p>
+
+            <p> Dont have an account? <%=link_to "Sign up now!", signup_path%></p>
+            
+
+            <%= form.submit "Log in", class:"btn btn-primary"%>
+
+        <%end%>
+
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<ul class="nav">
+    <li><%= image_tag("paperplane.png", :size => "20x20") %> <%= link_to "My Profile", current_user %><br/></li>
+    <li><%= image_tag("profile.webp", :size => "20x20") %> <%= link_to "My Posts", my_posts_users_path %><br/></li>
+    <li><%= image_tag("commentIcon.svg", :size => "20x20") %> <%= link_to "My Comments", my_comments_users_path %><br/></li>
+    <li><%= image_tag("tick.png", :size => "20x20") %> <%= link_to "Comments to Me", comments_to_me_users_path %><br/></li>
+    <li><%= image_tag("settings.webp", :size => "20x20") %> <%= link_to "Settings", personal_info_edit_users_path %><br/></li>
+</ul>
